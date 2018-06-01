@@ -66,7 +66,7 @@ export default class UnifiedChange extends PureComponent {
         return (
             <tr
                 id={anchorID}
-                className={classNames('diff-line', customClassNames.line)}
+                className={classNames('diff-line', customClassNames.line, change.classNames)}
                 ref={container => (this.container = container)}
             >
                 <td className={gutterClassName} data-line-number={oldLineNumber} {...boundGutterEvents}>

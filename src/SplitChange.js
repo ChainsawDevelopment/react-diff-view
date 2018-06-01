@@ -172,9 +172,11 @@ export default class SplitChange extends PureComponent {
             gutterAnchorTarget: oldChange === newChange ? oldAnchorID : newAnchorID
         };
 
+        const changeClassNames = (oldChange || newChange).classNames;
+
         if (monotonous) {
             return (
-                <tr className={classNames('diff-line', customClassNames.line)}>
+                <tr className={classNames('diff-line', customClassNames.line, changeClassNames)}>
                     {renderCells(oldChange ? oldArgs : newArgs)}
                 </tr>
             );
@@ -197,7 +199,7 @@ export default class SplitChange extends PureComponent {
         })(oldChange, newChange);
 
         return (
-            <tr className={classNames('diff-line', customClassNames.line, lineTypeClassName)}>
+            <tr className={classNames('diff-line', customClassNames.line, lineTypeClassName, changeClassNames)}>
                 {renderCells(oldArgs)}
                 {renderCells(newArgs)}
             </tr>
