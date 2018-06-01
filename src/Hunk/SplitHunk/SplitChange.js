@@ -170,9 +170,11 @@ const SplitChange = props => {
         hover: hover === 'new',
     };
 
+        const changeClassNames = (oldChange || newChange).classNames;
+
     if (monotonous) {
         return (
-            <tr className={classNames('diff-line', className)}>
+            <tr className={classNames('diff-line', className, changeClassNames)}>
                 {renderCells(oldChange ? oldArgs : newArgs)}
             </tr>
         );
@@ -195,7 +197,7 @@ const SplitChange = props => {
     })(oldChange, newChange);
 
     return (
-        <tr className={classNames('diff-line', lineTypeClassName, className)}>
+        <tr className={classNames('diff-line', lineTypeClassName, className, changeClassNames)}>
             {renderCells(oldArgs)}
             {renderCells(newArgs)}
         </tr>

@@ -14,10 +14,11 @@
     "test": "jest --config ./jest.config.js",
     "start": "webpack-dev-server --config=site/webpack.config.js",
     "clean": "rm -rf cjs es style",
-    "build": "npm run clean && NODE_ENV=production node rollup.js",
+    "build": "set NODE_ENV=production && node rollup.js",
     "build-pages": "rm -rf dist && webpack --config=site/webpack.config.js",
     "prepublishOnly": "npm run build",
-    "lint": "eslint src site"
+    "lint": "eslint src site",
+    "prepare": "npm run build"
   },
   "author": "otakustay",
   "license": "MIT",

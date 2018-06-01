@@ -78,7 +78,7 @@ const UnifiedChange = props => {
     );
 
     return (
-        <tr id={anchorID} className={classNames('diff-line', className)}>
+        <tr id={anchorID} className={classNames('diff-line', className, change.classNames)}>
             {
                 !hideGutter && renderGutterCell(
                     gutterClassNameValue,

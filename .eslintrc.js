@@ -13,6 +13,7 @@ module.exports = {
         'import/no-unresolved': [
             'error',
             {ignore: ['react-diff-view']}
-        ]
+        ],
+        'linebreak-style': 'off'
     }
 };
