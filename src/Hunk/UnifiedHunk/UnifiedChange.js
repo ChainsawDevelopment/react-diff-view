@@ -74,7 +74,7 @@ export default class UnifiedChange extends PureComponent {
         return (
             <tr
                 id={anchorID}
-                className={classNames('diff-line', className)}
+                className={classNames('diff-line', className, change.classNames)}
                 ref={container => (this.container = container)}
             >
                 <GutterCell

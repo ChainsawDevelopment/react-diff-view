@@ -8,11 +8,11 @@
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --config=site/webpack.config.js",
-    "clean": "rm -r cjs es style",
-    "build": "npm run clean && NODE_ENV=production node rollup.js",
+    "build": "set NODE_ENV=production && node rollup.js",
     "build-pages": "rm -r dist && webpack --config=site/webpack.config.js",
     "prepublishOnly": "npm run build",
-    "lint": "eslint src site"
+    "lint": "eslint src site",
+    "prepare": "npm run build"
   },
   "author": "otakustay",
   "license": "MIT",
