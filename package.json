@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "webpack-dev-server --config=webpack.demo.config.js",
     "build": "webpack --config=webpack.build.config.js",
-    "prepare": "npm run lint && npm run build",
+    "prepare": "npm run build",
     "lint": "eslint src demo"
   },
   "author": "otakustay",
