@@ -63,7 +63,6 @@
         "key-spacing": ["error", {"beforeColon": false, "afterColon": true}],
         "keyword-spacing": "error",
         "line-comment-position": "off",
-        "linebreak-style": ["error", "unix"],
         "lines-around-comment": "off",
         "max-depth": ["warn", 3],
         "max-len": ["error", 120, 4, {"ignoreUrls": true}],
