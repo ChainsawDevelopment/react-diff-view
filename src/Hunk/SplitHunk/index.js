@@ -9,14 +9,34 @@ const keyForPair = (x, y) => {
     return keyForX + keyForY;
 };
 
+const getFullChangeKey = (change, side) => {
+    if (!change) {
+        throw new Error('change is not provided');
+    }
+
+    const {isNormal, isInsert, oldLineNumber, newLineNumber} = change;
+
+    let prefix = '';
+
+    if (isNormal) {
+        prefix = 'N';
+    } else if (isInsert) {
+        prefix = 'I';
+    } else {
+        prefix = 'D';
+    }
+
+    return prefix + oldLineNumber + '_' + newLineNumber + '_' + side;
+};
+
 const groupElements = (changes, widgets) => {
-    const findWidget = change => {
+    const findWidget = (change, side) => {
         if (!change) {
             return null;
         }
 
         const key = getChangeKey(change);
-        return widgets[key] || null;
+        return widgets[key] || widgets[getFullChangeKey(change, side)] || null;
     };
     const elements = [];
 
@@ -44,7 +64,9 @@ const groupElements = (changes, widgets) => {
         }
 
         const rowChanges = elements[elements.length - 1];
-        const [oldWidget, newWidget] = rowChanges.slice(2).map(findWidget);
+        const oldWidget = findWidget(rowChanges[2], 'L');
+        const newWidget = findWidget(rowChanges[3], 'R');
+
         if (oldWidget || newWidget) {
             const key = rowChanges[1];
             elements.push(['widget', key, oldWidget, newWidget]);
