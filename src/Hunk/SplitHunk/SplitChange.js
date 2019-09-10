@@ -170,7 +170,7 @@ const SplitChange = props => {
         hover: hover === 'new',
     };
 
-        const changeClassNames = (oldChange || newChange).classNames;
+    const changeClassNames = (oldChange || newChange).classNames;
 
     if (monotonous) {
         return (
